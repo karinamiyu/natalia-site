@@ -244,13 +244,14 @@ footer hr {
 .card-map {
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.222);
     flex: 1 1 300px;
     min-width: 380px;
     max-width: 30%;
     display: flex;
     flex-direction: column;
     gap: 20px;          /* espaço entre elementos dentro do card */
+    font-weight: 500;
 }
 
 .card-map iframe{
@@ -263,7 +264,6 @@ footer hr {
 .tel{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     display: inline;
-    font-weight: 500;
 }
 
 .card-map a{
@@ -272,8 +272,17 @@ footer hr {
     display: flex;
 }
 
+.card-map u{
+    text-decoration: underline;
+}
+
 .card-map a:hover{
     color: rgb(53, 94, 69);
+}
+
+.nome{
+    font-weight: 800;
+    font-size: 30px;
 }
 
 /* Regras responsivas (media queries) */
