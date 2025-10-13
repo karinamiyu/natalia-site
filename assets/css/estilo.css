@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-    --menu-height: 140px; /* altura da barra fixa */
+    --menu-height: 100px; /* altura da barra fixa */
 }
 
 *{
@@ -34,24 +34,30 @@ html {
     scroll-padding-top: var(--menu-height);
 }
 
-a{
+a {
     display: inline-block; /* Faz o link ter só o tamanho do conteúdo */
     align-self: flex-start;
+    cursor: pointer;
 }
 
-footer {
-    display: flex;
-    flex-direction: column; /* empilha hr e texto */
-    align-items: center;    /* centraliza horizontalmente */
-    font-weight: 400;
-    gap: 30px;              /* espaço entre hr e texto */
-    padding: 30px 0;
+h1{
+    color: rgb(11, 48, 26);
+    font-size: 50px;
+    font-weight: 700;      
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideDown 1s ease forwards;
 }
 
-footer hr {
-    width: 50%; /* largura da linha */
-    border: 1px solid #ccc; /* cor da linha */
-    margin: 0; /* remove margens padrões */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .menu{
@@ -72,7 +78,7 @@ footer hr {
     left: 200px; /* fixa o logo à esquerda */
     top: 50%;                /* meio do contêiner */
     transform: translateY(-50%); /* centraliza verticalmente */
-    width: 200px;
+    width: 150px;
     cursor: pointer; /*sinaliza que tem uma ação (aparece a "mãozinha)*/
 }
 
@@ -82,7 +88,7 @@ footer hr {
     position: absolute;   /* tira do fluxo do flex */
     left: 50%;            /* joga o canto esquerdo no meio */
     transform: translateX(-50%); /* corrige pra ficar centralizado de verdade */
-    font-size: 18px;
+    font-size: 16px;
 }   
 
 .menu ul li a {
@@ -110,17 +116,153 @@ footer hr {
 }
 
 .sobre{
-    padding-top: calc(var(--menu-height) + 20px);
+    padding-top: calc(var(--menu-height) + 50px);
+    padding-bottom: 50px;
+    gap: 50px;
+    display: flex;
+    flex-direction: column;
 }
 
-.contato h1{
-    color: rgb(53, 94, 69);
-    font-size: 50px;
+.sobre .lin{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sobre span{
+    color: rgb(40, 158, 87);
+}
+
+.sobre .linha{
+    height: 1px;
+}
+
+.sobre .col {
+    display: flex;
+    flex-direction: column; /* força o empilhamento dos h1 */
+}
+
+.sobre .frase{
+    color: rgb(11, 48, 26);
+    font-size: 30px;
+    font-weight: 600;      
+}
+
+.sobre .texto{
+    background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url("../img/bg.png");
+    background-size: cover;
+    background-position: center;
+    padding: 50px 12%;
+    border-radius: 20px;
+}
+
+.sobre .sobre-mim{
+    width: 45%;
+}
+
+.sobre .sobre-mim p{
+    padding-top: 20px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.sobre .texto img{
+    width: 90%;
+    border-radius: 10px;
+}
+
+.sobre hr{
+    color:rgba(0, 0, 0, 0.242);
+    margin-top: 10px;
+}
+
+.sobre .box{
+    border: 2px solid rgba(0, 0, 0, 0.242);
+    border-radius: 10px;
+    padding: 50px;
+    width: 40%;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.222);
+}
+
+.sobre .box h1{
+    animation: none;
+    opacity: 1;
+    transform: none;
+    font-size: 25px;
     font-weight: 700;
-    margin-bottom: 20px;
+    text-align: center;
 }
 
-.contato button{
+.sobre .box p{
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.sobre .box p span{
+    font-weight: 600;
+}
+
+.sobre-mim .crm{
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.duvidas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.duvidas h1{
+    animation: none;
+    opacity: 1;
+    transform: none;
+    text-align: center;
+}
+
+.duvidas .box-duv{
+    border: 2px solid rgba(0, 0, 0, 0.242);
+    border-radius: 10px;
+    padding: 30px;
+    width: 60%;
+}
+
+.duvida {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    cursor: pointer;
+    position: relative; /* necessário para o dropdown */
+}
+
+.dropdown-content {
+    max-height: 0;             /* começa escondido */
+    overflow: hidden;           /* esconde o conteúdo extra */
+    padding: 0 16px;           /* só adiciona padding horizontal */
+    font-size: 16px;
+    transition: max-height 0.5s ease;
+}
+
+.dropdown-content .dropdown-inner{
+    padding: 10px 0 0;
+}
+
+.duvida svg {
+    transition: transform 0.3s ease; /* animação suave */
+}
+
+.duvida.active svg {
+    transform: rotate(180deg);
+}
+
+.duvidas hr{
+    color: #0000006e;
+    margin: 30px 0;
+}
+
+.contato button, .sobre button{
     background-color: rgb(53, 94, 69);
     color: white;
     border-radius: 50px;
@@ -135,18 +277,18 @@ footer hr {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
-.contato svg{
+.contato svg, .sobre svg{
     width: 40px;
 }
 
-.contato button:hover {
+.contato button:hover, .sobre button:hover{
     background-color: rgb(45, 80, 60);
 }
 
-.contato button:hover .whatsapp-icon {
+.contato button:hover .whatsapp-icon, .sobre button:hover .whatsapp-icon{
     animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 }
 
@@ -167,6 +309,7 @@ footer hr {
  * animation shake-bottom
  * ----------------------------------------
  */
+
 @-webkit-keyframes shake-bottom {
   0%,
   100% {
@@ -200,6 +343,7 @@ footer hr {
             transform: rotate(2deg);
   }
 }
+
 @keyframes shake-bottom {
   0%,
   100% {
@@ -237,14 +381,14 @@ footer hr {
 .cards-map{
     display: flex;
     flex-wrap: wrap; /* permite quebrar linha */
-    gap: 10px;
+    gap: 16px;
     justify-content: center; /* centraliza os cards */
 }
 
 .card-map {
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.222);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.222);
     flex: 1 1 300px;
     min-width: 380px;
     max-width: 30%;
@@ -283,6 +427,80 @@ footer hr {
 .nome{
     font-weight: 800;
     font-size: 30px;
+}
+
+.nat{
+    background-color: #7a836e;
+    color: #ffffff;
+    padding: 30px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 250px;
+}
+
+.nat h1{
+    color: #ffffff;
+    animation: none;
+    opacity: 1;
+    transform: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.nat .col {
+    display: flex;
+    flex-direction: column; /* força o empilhamento dos h1 */
+}
+
+.nat .lin{
+    display: flex;
+    gap: 5px;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+.nat .logos{
+    gap: 20px;
+}
+
+.nat button{
+    background-color: #00000045;
+    border-radius: 10px;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nat button svg{
+    width: 30px;
+}
+
+.nat button:hover{
+    background-color: rgb(255, 255, 255);
+    color: #00000075;
+}
+
+.karina {
+    background-color: #7a836e;
+    color: #fff;
+    display: flex;
+    flex-direction: column; /* empilha hr e texto */
+    align-items: center;    
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.karina p{
+    text-align: center;
+}
+
+.karina div{
+    padding: 0 0 15px;
 }
 
 /* Regras responsivas (media queries) */

@@ -28,3 +28,33 @@ window.addEventListener('scroll', () => {
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+function copiarTexto() {
+    // pega o conteúdo do parágrafo
+    const texto = document.getElementById("texto").innerText;
+
+    // usa a API moderna de clipboard
+    navigator.clipboard.writeText(texto).then(() => {
+    alert("Texto copiado para a área de transferência!");
+    }).catch(err => {
+    console.error("Erro ao copiar: ", err);
+    });
+}
+
+const duvidas = document.querySelectorAll('.duvida');
+
+duvidas.forEach(duvida => {
+  duvida.addEventListener('click', () => {
+    const content = duvida.nextElementSibling;
+    
+    if (content.style.maxHeight) {
+      // fecha
+      content.style.maxHeight = null;
+      duvida.classList.remove('active'); // remove rotação
+    } else {
+      // abre
+      content.style.maxHeight = content.scrollHeight + "px";
+      duvida.classList.add('active'); // aplica rotação
+    }
+  });
+});
