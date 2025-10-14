@@ -105,19 +105,12 @@ h1{
     font-weight: 700;
 }
 
-.titulo{
-    color: black;
-    font-size: 30px;
-    font-weight: 600;
-}
-
 .section {
     padding: 50px 200px 0;
 }
 
 .sobre{
     padding-top: calc(var(--menu-height) + 50px);
-    padding-bottom: 50px;
     gap: 50px;
     display: flex;
     flex-direction: column;
@@ -148,7 +141,7 @@ h1{
 }
 
 .sobre .texto{
-    background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url("../img/bg.png");
+    background-image: linear-gradient(rgba(45, 80, 60, 0.85), rgba(45, 80, 60, 0.85)), url("../img/bg.png");
     background-size: cover;
     background-position: center;
     padding: 50px 12%;
@@ -156,17 +149,29 @@ h1{
 }
 
 .sobre .sobre-mim{
-    width: 45%;
+    width: 70%;
+    color: white;
+}
+
+.sobre .sobre-mim h1{
+    color: white;
 }
 
 .sobre .sobre-mim p{
     padding-top: 20px;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 500;
+    color: white;
+}
+
+.sobre-mim .crm{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .sobre .texto img{
-    width: 90%;
+    width: 85%;
     border-radius: 10px;
 }
 
@@ -187,7 +192,7 @@ h1{
     animation: none;
     opacity: 1;
     transform: none;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 700;
     text-align: center;
 }
@@ -195,16 +200,66 @@ h1{
 .sobre .box p{
     margin-top: 10px;
     font-weight: 500;
+    font-size: 20px;
 }
 
 .sobre .box p span{
     font-weight: 600;
 }
 
-.sobre-mim .crm{
-    color: black;
+.atuacao{
+    padding-bottom: 100px;
+}
+
+.atuacao h1{
+    text-align: center;
+}
+
+.atuacao p{
+    text-align: center;
     font-size: 20px;
-    font-weight: 700;
+    padding-top: 30px
+}
+
+.atuacao .box{
+    border: 2px solid;
+    border-color: black;
+    border-radius: 10px;
+    padding: 30px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    margin-top: 75px;
+}
+
+.atuacao .box img{
+    width: 150px;
+    position: absolute;
+    top: -75px; 
+}
+
+.atuacao .box h1{
+    animation: none;
+    opacity: 1;
+    transform: none;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.atuacao .box p{
+    font-size: 20px;
+    padding: 0;
+    font-weight: 400;
+}
+
+.atuacao .linha{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 30px 0 0;
 }
 
 .duvidas{
@@ -212,27 +267,28 @@ h1{
     flex-direction: column;
     align-items: center;
     gap: 30px;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url("../img/bg.png");
+    padding-bottom: 60px;
 }
 
 .duvidas h1{
-    animation: none;
-    opacity: 1;
-    transform: none;
     text-align: center;
 }
 
 .duvidas .box-duv{
-    border: 2px solid rgba(0, 0, 0, 0.242);
+    border: 2px solid black;
     border-radius: 10px;
     padding: 30px;
     width: 60%;
+    background-color: white;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.222);
 }
 
 .duvida {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
     position: relative; /* necessário para o dropdown */
 }
@@ -241,7 +297,7 @@ h1{
     max-height: 0;             /* começa escondido */
     overflow: hidden;           /* esconde o conteúdo extra */
     padding: 0 16px;           /* só adiciona padding horizontal */
-    font-size: 16px;
+    font-size: 18px;
     transition: max-height 0.5s ease;
 }
 
@@ -262,7 +318,49 @@ h1{
     margin: 30px 0;
 }
 
-.contato button, .sobre button{
+.contato{    
+    background-image: linear-gradient(rgba(45, 80, 60, 0.85), rgba(45, 80, 60, 0.85)), url("../img/bg.png");
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 100px;
+}
+
+.contato h1{
+    color: white;
+}
+
+.contato button{
+    background-color: white;
+    color:  rgb(33, 58, 43);
+    border-radius: 50px;
+    width: 300px;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;                /* ativa o flexbox */
+    align-items: center;          /* alinha verticalmente */
+    justify-content: center;      /* centraliza horizontalmente */
+    gap: 10px;                    /* espaço entre o texto e o ícone */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 20px 0;
+}
+
+.contato svg{
+    width: 40px;
+}
+
+.contato button:hover{
+    background-color: rgb(33, 58, 43);
+    color: white;
+}
+
+.contato button:hover .whatsapp-icon{
+    animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+.sobre button{
     background-color: rgb(53, 94, 69);
     color: white;
     border-radius: 50px;
@@ -280,15 +378,15 @@ h1{
     margin: 20px 0;
 }
 
-.contato svg, .sobre svg{
+.sobre svg{
     width: 40px;
 }
 
-.contato button:hover, .sobre button:hover{
+.sobre button:hover{
     background-color: rgb(45, 80, 60);
 }
 
-.contato button:hover .whatsapp-icon, .sobre button:hover .whatsapp-icon{
+.sobre button:hover .whatsapp-icon{
     animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 }
 
@@ -383,12 +481,13 @@ h1{
     flex-wrap: wrap; /* permite quebrar linha */
     gap: 16px;
     justify-content: center; /* centraliza os cards */
+    padding-top: 20px;
 }
 
 .card-map {
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.222);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.653);
     flex: 1 1 300px;
     min-width: 380px;
     max-width: 30%;
@@ -396,6 +495,7 @@ h1{
     flex-direction: column;
     gap: 20px;          /* espaço entre elementos dentro do card */
     font-weight: 500;
+    background-color: white;
 }
 
 .card-map iframe{
@@ -432,8 +532,7 @@ h1{
 .nat{
     background-color: #7a836e;
     color: #ffffff;
-    padding: 30px;
-    margin-top: 30px;
+    padding: 50px 30px 30px;
     display: flex;
     justify-content: center;
     gap: 250px;
