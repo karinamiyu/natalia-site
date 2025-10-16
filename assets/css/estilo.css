@@ -88,7 +88,7 @@ h1{
     position: absolute;   /* tira do fluxo do flex */
     left: 50%;            /* joga o canto esquerdo no meio */
     transform: translateX(-50%); /* corrige pra ficar centralizado de verdade */
-    font-size: 16px;
+    font-size: 18px;
 }   
 
 .menu ul li a {
@@ -125,10 +125,6 @@ h1{
     color: rgb(40, 158, 87);
 }
 
-.sobre .linha{
-    height: 1px;
-}
-
 .sobre .col {
     display: flex;
     flex-direction: column; /* força o empilhamento dos h1 */
@@ -146,6 +142,7 @@ h1{
     background-position: center;
     padding: 50px 12%;
     border-radius: 20px;
+    position: relative;
 }
 
 .sobre .sobre-mim{
@@ -171,8 +168,28 @@ h1{
 }
 
 .sobre .texto img{
-    width: 85%;
+    width: 500px;
     border-radius: 10px;
+    transform: scaleX(-1);
+    position: absolute;
+    margin-left: -150px;
+    margin-top: -94px;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: slideDownImg 1s ease forwards;
+}
+
+@keyframes slideDownImg {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+        transform: scaleX(-1);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        transform: scaleX(-1);
+    }
 }
 
 .sobre hr{
@@ -181,12 +198,33 @@ h1{
 }
 
 .sobre .box{
-    border: 2px solid rgba(0, 0, 0, 0.242);
+    border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
     padding: 50px;
     width: 40%;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.222);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url("../img/bg.png");
 }
+
+
+/* .atuacao .box{
+    border: 2px solid;
+    border-color: black;
+    border-radius: 10px;
+    padding: 30px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    margin-top: 75px;
+}
+
+.atuacao .box img{
+    width: 150px;
+    position: absolute;
+    top: -75px; 
+} */
+
 
 .sobre .box h1{
     animation: none;
@@ -602,30 +640,233 @@ h1{
     padding: 0 0 15px;
 }
 
-/* Regras responsivas (media queries) */
-@media (max-width: 1000px) {
+/* === Tablets (até 1024px) === */
+@media (max-width: 1024px) {
     .section {
-        padding: 40px 50px 0;
+        padding: 40px 60px;
     }
-    .menu {
-        display: none; /* esconde o menu */
+
+    .menu{
+        display: none;
+    }
+
+    /* .menu img {
+        left: 40px;
+        width: 120px;
+    }
+
+    .menu ul {
+        gap: 25px;
+        font-size: 16px;
+        left: 60%;
+    } */
+
+    .sobre .slogan{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sobre .lin {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .sobre .texto img {
+        position: static;
+        margin: 0;
+        transform: scaleX(-1);
+        width: 350px;
+        display: block;
+        margin: 0 auto 20px;
+    }
+
+    .sobre .sobre-mim {
+        width: 100%;
+    }
+
+    .sobre .box {
+        width: 80%;
+    }
+
+    .atuacao .linha {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .atuacao .box {
+        width: 80%;
+    }
+
+    .duvidas .box-duv {
+        width: 80%;
+    }
+
+    .cards-map {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card-map {
+        max-width: 90%;
+        min-width: auto;
+    }
+
+    .nat {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .nat .lin {
+        justify-content: center;
     }
 }
 
+/* === Celulares (até 768px) === */
 @media (max-width: 768px) {
-    .section {
-        padding: 40px 50px 0;
+    :root {
+        --menu-height: 80px;
     }
-    .menu {
-        display: none; /* esconde o menu */
+
+    .menu{
+        display: none;
+    }
+
+    /* .menu {
+        flex-direction: column;
+        justify-content: center;
+        height: var(--menu-height);
+        padding: 10px 0;
+    }
+
+    .menu img {
+        position: static;
+        transform: none;
+        width: 100px;
+        margin-bottom: 5px;
+    }
+
+    .menu ul {
+        position: static;
+        transform: none;
+        gap: 15px;
+        font-size: 14px;
+    } */
+
+    .sobre h1 {
+        font-size: 36px;
+    }
+
+    .sobre .slogan{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sobre .frase {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .sobre .texto {
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .sobre .sobre-mim h1 {
+        font-size: 28px;
+    }
+
+    .sobre .sobre-mim p {
+        font-size: 18px;
+    }
+
+    .sobre .texto img {
+        width: 250px;
+        margin-bottom: 20px;
+    }
+
+    .sobre .box {
+        width: 100%;
+        padding: 30px 20px;
+    }
+
+    .atuacao .box {
+        width: 100%;
+    }
+
+    .duvidas .box-duv {
+        width: 95%;
+    }
+
+    .contato button {
+        width: 100%;
+        max-width: 280px;
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .card-map iframe {
+        height: 250px;
+    }
+
+    .nat {
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
+    .nat h1 {
+        font-size: 16px;
+    }
+
+    .karina p {
+        font-size: 10px;
     }
 }
 
+/* === Celulares pequenos (até 480px) === */
 @media (max-width: 480px) {
     .section {
-        padding: 30px 20px 0;
+        padding: 30px 15px;
     }
-    .menu {
-        display: none; /* esconde o menu */
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .menu{
+        display: none;
+    }
+
+    /* .menu ul {
+        flex-direction: column;
+        align-items: center;
+    } */
+
+    .sobre .slogan{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sobre .texto {
+        padding: 25px 15px;
+    }
+
+    .sobre .texto img {
+        width: 200px;
+    }
+
+    .atuacao p,
+    .sobre p {
+        font-size: 16px;
+    }
+
+    .duvida {
+        font-size: 18px;
+    }
+
+    .card-map {
+        padding: 15px;
     }
 }
