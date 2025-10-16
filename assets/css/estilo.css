@@ -143,7 +143,6 @@ h1{
     padding: 50px 12%;
     border-radius: 20px;
     position: relative;
-    overflow: hidden; /* evita que a imagem ultrapasse o limite da box */
 }
 
 .sobre .sobre-mim{
@@ -172,8 +171,7 @@ h1{
     position: absolute;
     bottom: 0;           /* fixa na base */
     left: 40px;          /* um pouco afastada da borda esquerda */
-    width: 450px;
-    border-radius: 10px;
+    width: 525px;
     transform: scaleX(-1);
     opacity: 0;
     animation: slideDownImg 1s ease forwards;
