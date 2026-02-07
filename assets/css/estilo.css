@@ -69,13 +69,14 @@ h1{
     left: 0;
     z-index: 1000; /* opcional: garante que fique acima de outros elementos */
     display: flex;           /* ativa o flexbox */
+    flex-wrap: wrap;    
     align-items: center;     /* alinha verticalmente logo e links */
     font-weight: 500;
 }
 
 .menu img{
     position: absolute;
-    left: 200px; /* fixa o logo à esquerda */
+    left: 10%; /* fixa o logo à esquerda */
     top: 50%;                /* meio do contêiner */
     transform: translateY(-50%); /* centraliza verticalmente */
     width: 150px;
@@ -84,6 +85,7 @@ h1{
 
 .menu ul {
     display: flex; /*menu horizontal*/
+    flex-wrap: wrap;    
     gap: 40px;          /* espaço entre os links */
     position: absolute;   /* tira do fluxo do flex */
     left: 50%;            /* joga o canto esquerdo no meio */
@@ -106,19 +108,21 @@ h1{
 }
 
 .section {
-    padding: 50px 200px 0;
+    padding: 50px 8% 0;
 }
 
 .sobre{
     padding-top: calc(var(--menu-height) + 50px);
     gap: 50px;
     display: flex;
+    flex-wrap: wrap;    
     flex-direction: column;
 }
 
 .sobre .lin{
     display: flex;
     justify-content: space-between;
+    gap: 20px;
 }
 
 .sobre span{
@@ -127,6 +131,7 @@ h1{
 
 .sobre .col {
     display: flex;
+    flex-wrap: wrap;    
     flex-direction: column; /* força o empilhamento dos h1 */
 }
 
@@ -140,13 +145,16 @@ h1{
     background-image: linear-gradient(rgba(45, 80, 60, 0.85), rgba(45, 80, 60, 0.85)), url("../img/bg.png");
     background-size: cover;
     background-position: center;
-    padding: 50px 12%;
+    padding: 50px;
     border-radius: 20px;
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 }
 
 .sobre .sobre-mim{
-    width: 70%;
+    width: 65%;
     color: white;
 }
 
@@ -170,8 +178,8 @@ h1{
 .sobre .texto img {
     position: absolute;
     bottom: 0;           /* fixa na base */
-    left: 40px;          /* um pouco afastada da borda esquerda */
-    width: 525px;
+    width: 25vw;
+    max-width: 500px;
     transform: scaleX(-1);
     opacity: 0;
     animation: slideDownImg 1s ease forwards;
@@ -242,6 +250,7 @@ h1{
     width: 30%;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;    
     gap: 20px;
     position: relative;
     margin-top: 75px;
@@ -269,7 +278,7 @@ h1{
 }
 
 .atuacao .linha{
-    display: flex;
+    display: flex;   
     justify-content: space-between;
     gap: 20px;
     padding: 30px 0 0;
@@ -277,6 +286,7 @@ h1{
 
 .duvidas{
     display: flex;
+    flex-wrap: wrap;    
     flex-direction: column;
     align-items: center;
     gap: 30px;
@@ -286,6 +296,11 @@ h1{
 
 .duvidas h1{
     text-align: center;
+}
+
+.duvidas p{
+    text-align: center;
+    font-weight: 700;
 }
 
 .duvidas .box-duv{
@@ -298,7 +313,7 @@ h1{
 }
 
 .duvida {
-    display: flex;
+    display: flex;   
     justify-content: space-between;
     align-items: center;
     font-size: 20px;
@@ -351,6 +366,7 @@ h1{
     font-size: 20px;
     font-weight: 700;
     display: flex;                /* ativa o flexbox */
+    flex-wrap: wrap;    
     align-items: center;          /* alinha verticalmente */
     justify-content: center;      /* centraliza horizontalmente */
     gap: 10px;                    /* espaço entre o texto e o ícone */
@@ -503,8 +519,8 @@ h1{
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.653);
     flex: 1 1 300px;
     min-width: 380px;
-    max-width: 30%;
     display: flex;
+    flex-wrap: wrap;    
     flex-direction: column;
     gap: 20px;          /* espaço entre elementos dentro do card */
     font-weight: 500;
@@ -547,6 +563,7 @@ h1{
     color: #ffffff;
     padding: 50px 30px 30px;
     display: flex;
+    flex-wrap: wrap;    
     justify-content: center;
     gap: 250px;
 }
@@ -562,11 +579,13 @@ h1{
 
 .nat .col {
     display: flex;
+    flex-wrap: wrap;    
     flex-direction: column; /* força o empilhamento dos h1 */
 }
 
 .nat .lin{
     display: flex;
+    flex-wrap: wrap;    
     gap: 5px;
     margin-top: 8px;
     font-size: 15px;
@@ -601,6 +620,7 @@ h1{
     background-color: #7a836e;
     color: #fff;
     display: flex;
+    flex-wrap: wrap;    
     flex-direction: column; /* empilha hr e texto */
     align-items: center;    
     font-weight: 400;
@@ -680,11 +700,11 @@ h1{
     .cards-map {
         flex-direction: column;
         align-items: center;
+        display: flex;
     }
 
     .card-map {
-        max-width: 90%;
-        min-width: auto;
+        width: 80%;
     }
 
     .nat {
